@@ -47,3 +47,19 @@ docker run -p [port]:[port] -v "$(pwd):/app" -v /app/node_modules [imageName]
 
 - -v /app/node_modules
   This is to ensure that the node_modules directory inside the container (which may have platform-specific builds) is not overwritten by the host's node_modules directory due to the previous volume mount. Essentially, it preserves the node_modules directory as created within the container.
+
+### Push to Docker Hub
+
+Similar to the GitHub
+
+1. Tag the local image with the remote repository
+
+```sh
+docker tag [local-image]:[tag] [your-username]/[repository-name]:[tag]
+```
+
+2. Push the image to the Docker Hub(default is public)
+
+```sh
+docker push [your-username]/[repository-name]:[tag]
+```
