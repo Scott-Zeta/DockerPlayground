@@ -30,3 +30,20 @@ to
     "preview": "vite preview"
   },
 ```
+
+### Dev enviroument with docker?
+
+```sh
+docker run -p [port]:[port] -v "$(pwd):/app" -v /app/node_modules [imageName]
+```
+
+- -p [port]:[port]
+  The -p option is used for port mapping. It maps a port on your host machine to a port in the Docker container.
+- -v "$(pwd):/app"
+
+  The -v option is used to mount volumes.
+  $(pwd) is a shell command that gets replaced by your current working directory on the host machine. This directory is being mounted to /app in the container.
+  This means that the contents of your current directory on your host machine are directly accessible in /app inside the container. This is often done for development purposes to allow for live code updates without needing to rebuild the image.
+
+- -v /app/node_modules
+  This is to ensure that the node_modules directory inside the container (which may have platform-specific builds) is not overwritten by the host's node_modules directory due to the previous volume mount. Essentially, it preserves the node_modules directory as created within the container.
