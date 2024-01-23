@@ -67,3 +67,15 @@ docker push [your-username]/[repository-name]:[tag]
 ```
 
 ## Docker Compose
+
+Initial docker essential file
+
+```sh
+docker init
+```
+
+Run the compose yml file
+
+```sh
+docker compose up
+```
